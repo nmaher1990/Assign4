@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "604864678689",
+    "firebase_url": "https://assign4-nicholasmaher-f0488-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "assign4-nicholasmaher-f0488",
+    "storage_bucket": "assign4-nicholasmaher-f0488.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604864678689:android:b9cae2398978a991da8c60",
+        "android_client_info": {
+          "package_name": "com.example.sdaassign4_2022"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604864678689-t0k9hdipohk135p52mgpctvu3ammnrmu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sdaassign4_2022",
+            "certificate_hash": "be655fc46de42b21a0ca1703119cb7c8d697f1d3"
+          }
+        },
+        {
+          "client_id": "604864678689-s75athfl5nqppou1ccu4rbvt6cf2k9po.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_HxTAbd28jvz70swk4IiarVVVyiPB2AU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604864678689-dm5ul5skd8knj3o970ormlggnct22uh2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
