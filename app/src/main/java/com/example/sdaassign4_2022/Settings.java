@@ -64,7 +64,7 @@ public class Settings extends Fragment {
         return view;
     }
 
-    private void saveUserData() {
+    private void saveUserData() { // save textbox entries
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(BORROWER_NAME_KEY, editBorrowerName.getText().toString());
         editor.putString(EMAIL_ADDRESS_KEY, editEmailAddress.getText().toString());
@@ -75,7 +75,7 @@ public class Settings extends Fragment {
 
     }
 
-    private void clearUserData() {
+    private void clearUserData() { // wipe setting entries, but not make null
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(BORROWER_NAME_KEY, "");
         editor.putString(EMAIL_ADDRESS_KEY, "");

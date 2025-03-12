@@ -58,19 +58,19 @@ public class BookList extends Fragment {
 
 
 
-        // Get image URLs from Firebase Storage
-        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        databaseRef.addListenerForSingleValueEvent(new ValueEventListener() { // Get images from Firebase
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (int i = 1; i <= 14; i++) {
+                for (int i = 1; i <= 14; i++) { // Array size based on number of images. A count attempt didn't work
                     String sku = "sku1000" + i;
                     if (dataSnapshot.hasChild(sku)) {
-                        String gsUrl = dataSnapshot.child(sku).getValue(String.class);
-                        StorageReference gsReference = FirebaseStorage.getInstance().getReferenceFromUrl(gsUrl);
+                        String url = dataSnapshot.child(sku).getValue(String.class);
+                        StorageReference gsReference = FirebaseStorage.getInstance().getReferenceFromUrl(url);
                         gsReference.getDownloadUrl().addOnSuccessListener(uri -> {
                             mImageURLs.add(uri.toString());
 
-                            if (mImageURLs.size() == 14) { // Ensure all images are loaded before updating RecyclerView
+                            if (mImageURLs.size() == 14) { // wait until array is full
                                 LibraryViewAdapter recyclerViewAdapter = new LibraryViewAdapter(getContext(), mAuthor, mTitle, mImageURLs);
                                 recyclerView.setAdapter(recyclerViewAdapter);
                                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

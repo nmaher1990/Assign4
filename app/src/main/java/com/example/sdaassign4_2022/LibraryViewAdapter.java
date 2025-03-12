@@ -52,6 +52,7 @@ public class LibraryViewAdapter extends RecyclerView.Adapter<LibraryViewAdapter.
     private ArrayList<String> mTitle;
     private ArrayList<String> mImageID;
 
+    //SharedPreferences for Checkout access
     private static final String BORROWER_NAME_KEY = "BORROWER_NAME_KEY";
     private static final String EMAIL_ADDRESS_KEY = "EMAIL_ADDRESS_KEY";
     private static final String BORROWER_ID_KEY = "BORROWER_ID_KEY";
@@ -85,22 +86,22 @@ public class LibraryViewAdapter extends RecyclerView.Adapter<LibraryViewAdapter.
 
         String imageUrl = mImageID.get(position);
 
-        // Convert gs:// to HTTPS URL for Glide
+        // Convert to HTTPS URL links so Gldie can access
         if (imageUrl.startsWith("gs://")) {
             imageUrl = imageUrl.replace("gs://assign4-nicholasmaher-f0488.appspot.com",
                             "https://firebasestorage.googleapis.com/v0/b/assign4-nicholasmaher-f0488.appspot.com/o")
-                    .replace("/", "%2F") + "?alt=media"; // Encode URL properly
+                    .replace("/", "%2F") + "?alt=media";
         }
-
+        //Glide image retrieval
         Glide.with(viewHolder.imageItem.getContext())
                 .load(imageUrl)
                 .into(viewHolder.imageItem);
 
+        //Button enable/disable logic
         prefs = mNewContext.getSharedPreferences("UserPreferences", MODE_PRIVATE);
         String borrowerName = prefs.getString(BORROWER_NAME_KEY, "");
         String emailAddress = prefs.getString(EMAIL_ADDRESS_KEY, "");
         String borrowerID = prefs.getString(BORROWER_ID_KEY, "");
-
 
         viewHolder.checkOut.setOnClickListener(new View.OnClickListener() {
             @Override
